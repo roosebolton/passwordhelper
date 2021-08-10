@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<!-- CSS Bootstrap-->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+<!-- Javascript Bootstrap-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+<!-- Javascript-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+<head>
+  
+<body>
+<div class="Title">Passwordhelper.net</div>
+
+<div class="PwLength">Choose Password Length</div>
+
+<div class="Spinner">
+    <input id = "Spinner" type="number" value="8" min="8" max="Number.MAX_VALUE" step="1"/>
+</div>
+
+<div class="PW" id ="PW">Password</div>
+
+<div class="PWbutton">
+    <button type="button" class="btn btn-primary" id="PWbutton">Create Password</button>
+</div>
+
+
+<div class="Checkboxes">
+  <div class = NoSpCharChbx >  
+  <label>No special characters
+  <input id="NoSpCharChbx" type="checkbox">
+  <span class="checkmark"></span>
+  </label>
+  </div>
+
+  <div class = NoNumChbx >  
+  <label>No numbers
+    <input id="NoNumChbx" type="checkbox">
+    <span class="checkmark"></span>
+  </label>
+  </div>
+  
+  <div class = NoAmbChChbx >
+  <label>No ambigious characters (I,l,O,0 etc)
+    <input id="NoAmbChChbx" type="checkbox">
+    <span class="checkmark"></span>
+  </label>
+  </div>
+</div>
+</body>
+</html>
