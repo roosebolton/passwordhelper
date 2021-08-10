@@ -13,6 +13,350 @@
 <head>
   
 <body>
+  
+<script type="text/javascript">
+  $(document).ready(function() {
+  
+  const acnf = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','0','1','2','3','4','5','6','7','8','9','!','(',')','?','[',']','_','`','~',';',':','@','#','$','%','^','&','*','+','=','-','.'];
+
+    //Char array that includes all characters
+    const acf = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','0','1','2','3','4','5','6','7','8','9','!','(',')','?','[',']','_','`','~',';',':','@','#','$','%','^','&','*','+','='];
+
+    //Char array that excludes special characters
+    const nsc =  ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','0','1','2','3','4','5','6','7','8','9'];
+
+    //Char array that excludes numbers and is usable for first characters
+    const nnf = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','!','(',')','?','[',']','_','`','~',';',':','@','#','$','%','^','&','*','+','='];
+
+    //Char array that excludes numbers and is not usable for first characters
+    const nnnf = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','!','(',')','?','[',']','_','`','~',';',':','@','#','$','%','^','&','*','+','=','-','.'];
+
+    //Char array that excludes special characters and numbers
+    const  nsnnc = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+
+    //Char array that excludes special characters that are better not used as first characters and ambiguous characters
+    const acnanf = ['a','b','c','d','e','f','g','h','j','k','m','n','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','J','K','M','N','P','Q','R','S','T','U','V','W','X','Y','Z','2','3','4','5','6','7','8','9','!','(',')','?','[',']','_','`','~',';',':','@','#','$','%','^','&','*','+','=','-','.'];
+
+    //Char array that excludes non ambiguous characters and is usable for first chars
+    const acnaf = ['a','b','c','d','e','f','g','h','j','k','m','n','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','J','K','M','N','P','Q','R','S','T','U','V','W','X','Y','Z','2','3','4','5','6','7','8','9','!','(',')','?','[',']','_','`','~',';',':','@','#','$','%','^','&','*','+','='];
+
+    //Char array that excludes special characters and ambiguous characters
+    const nsnac =  ['a','b','c','d','e','f','g','h','j','k','m','n','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','J','K','M','N','P','Q','R','S','T','U','V','W','X','Y','Z','2','3','4','5','6','7','8','9'];
+
+    //Char array that excludes special characters and numbers and ambiguous characters
+    const  nsnnnac = ['a','b','c','d','e','f','g','h','j','k','m','n','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','J','K','M','N','P','Q','R','S','T','U','V','W','X','Y','Z'];
+
+    //Char array that excludes special characters that are better not used as first characters and exludes ambiguous characters
+    const acnnnambnf = ['a','b','c','d','e','f','g','h','j','k','m','n','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','J','K','M','N','P','Q','R','S','T','U','V','W','X','Y','Z','!','(',')','?','[',']','_','`','~',';',':','@','#','$','%','^','&','*','+','=','-','.'];
+
+    //Char array that excludes numbers and includes non ambiguous characters, usable as first chars
+    const acnnnambf = ['a','b','c','d','e','f','g','h','j','k','m','n','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','J','K','M','N','P','Q','R','S','T','U','V','W','X','Y','Z','!','(',')','?','[',']','_','`','~',';',':','@','#','$','%','^','&','*','+','='];
+
+    //Length of the acnf array
+    const acnflength = acnf.length;
+
+    //aLength of the acf array
+    const acflength = acf.length;
+
+    //Length of the nnf array
+    const nnflength = nnf.length;
+
+    //Length of the nnnf array
+    const nnnflength = nnnf.length;
+
+    //Length of the nsc array
+    const nsclength = nsc.length;
+
+    //Length of the nsnnc array
+    const nsnnclength = nsnnc.length;
+
+    ///Length of the acnanf array
+    const acnanflength = acnanf.length;
+
+    ///Length of the acnaf array
+    const acnaflength = acnaf.length;
+
+    ///Length of the nsnac array
+    const  nsnaclength = nsnac.length;
+
+    ///Length of the nsnnnac array
+    const nsnnaclength = nsnnnac.length;
+
+    //Length of the acnnnanf array
+    const acnnnambflength = acnnnambf.length;
+
+    //Length of the acnnnambnf array
+    const acnnnambnflength = acnnnambnf.length;
+    
+    //checks if integer length is 8 or more, for checking minimal password length
+    function propperlength(length){
+        return length>=8;
+    }
+  
+    ///creates random integer from inclusive to inclusive
+    function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+    
+    /////all characters
+    function allCharPW(pwlength){
+        output = [];
+        if(!propperlength(pwlength)){
+          return "Password length must be a number, 8 or more.";
+        }
+        else{
+          rand1= getRandomInt(0, acflength);
+          output[0] = acf[rand1];
+          for(let i = 1; i < pwlength; i++){
+            rand2 = getRandomInt(0, acnflength);
+            output[i] = acf[rand2];
+        }
+        return output.join("");
+        }
+    }
+
+    /////no Numbers, no ambiguous, includes special characters
+    function allCharNoNumNoAmbPW(pwlength){
+        output = [];
+        if(!propperlength(pwlength)){
+          return "Password must be at least 8 characters long";
+        }
+        else{
+          rand1= getRandomInt(0, acnnnambflength);
+          output[0] = acnnnambf[rand1];
+          for(let i = 1; i < pwlength; i++){
+            rand2 = getRandomInt(0, acnnnambnflength);
+            output[i] = acnnnambnf[rand2];
+        }
+        return output.join("");
+        }
+    }
+    
+   ///////no numbers
+    function noNumberPW(pwlength){
+        output = [];
+        if(!propperlength(pwlength)){
+          return "Password must be at least 8 characters long";
+        }
+        else{
+          rand1= getRandomInt(0, nnflength);
+          output[0] = nnf[rand1];
+          for(let i = 1; i < pwlength; i++){
+            rand2 = getRandomInt(0, nnnflength);
+            output[i] = nnnf[rand2];
+        }
+        return output.join("");
+        }
+    }
+    
+   ///////no special characters
+    function nonCharPW(pwlength){
+      output = [];
+      if(!propperlength(pwlength)){
+        return "Password must be at least 8 characters long";
+      }
+      else{
+        for(let i = 0; i < pwlength; i++){
+          rand = getRandomInt(0, nsclength);
+          output[i] = nsc[rand];
+      }
+        return output.join("");
+      }
+    }
+
+    /////no ambiguous characters
+    function allCharsNonAmbPW(pwlength){
+      output = [];
+        if(!propperlength(pwlength)){
+          return "Password must be at least 8 characters long";
+        }
+        else{
+          rand1= getRandomInt(0, acnaflength);
+          output[0] = acnaf[rand1];
+          for(let i = 1; i < pwlength; i++){
+            rand2 = getRandomInt(0, acnanflength);
+            output[i] = acnanf[rand2];
+        }
+          return output.join("");
+        }
+    }
+
+    ///////no special characters, no numbers, includes ambiguous characters
+    function nonCharNonNumPW(pwlength){
+        output = [];
+        if(!propperlength(pwlength)){
+          return "Password must be at least 8 characters long";
+        }
+        else{
+          for(let i = 0; i < pwlength; i++){
+            rand = getRandomInt(0, nsnnclength);
+            output[i] = nsnnc[rand];
+        }
+          return output.join("");
+        }
+    }
+    
+    ///////no special characters, no ambiguous characters, includes numbers
+    function nonCharNonAmbPW(pwlength){
+        output = [];
+        if(!propperlength(pwlength)){
+          return "Password must be at least 8 characters long";
+        }
+        else{
+          for(let i = 0; i < pwlength; i++){
+            rand = getRandomInt(0, nsnaclength);
+            output[i] = nsnac[rand];
+        }
+          return output.join("");
+        }
+    }
+    
+    //////no special characters, numbers or ambiguous characters
+    function nonCharNonNumNonAmbPW(pwlength){
+        output = [];
+        if(!propperlength(pwlength)){
+          return "Password must be at least 8 characters long";
+        }
+        else{
+          for(let i = 0; i < pwlength; i++){
+            rand = getRandomInt(0, nsnnaclength);
+            output[i] = nsnnnac[rand];
+        }
+          return output.join("");
+        }
+    }
+
+   //generates password, given a length and on or of option for special characters, numbers and ambiguous characters
+   function getPW(pwLngth, noSpec, noNum, noAmb){
+        //////no special characters, numbers or ambiguous characters
+        if((noSpec==true && noNum==true) && noAmb==true){
+            return nonCharNonNumNonAmbPW(pwLngth);
+        }
+        /////no Numbers, no ambiguous, includes special characters
+        if((noSpec==false && noNum==true) && noAmb==true){
+            return allCharNoNumNoAmbPW(pwLngth);
+        }
+        /////no ambiguous characters
+        if((noSpec==false && noNum==false) && noAmb==true){
+            return allCharsNonAmbPW(pwLngth);
+        }
+        ///////all characters
+        if((noSpec==false && noNum==false) && noAmb==false){
+            return allCharPW(pwLngth);
+        }
+        ///////no special characters, no ambiguous characters, includes numbers
+        if((noSpec==true && noNum==false) && noAmb==true){
+            return nonCharNonAmbPW(pwLngth);
+        }
+        ///////no special characters
+        if((noSpec==true && noNum==false) && noAmb==false){
+            return nonCharPW(pwLngth);
+        }
+        ///////no special characters, no numbers, includes ambiguous characters
+        if((noSpec==true && noNum==true) && noAmb==false){
+            return nonCharNonNumPW(pwLngth);
+        }
+        ///////no numbers
+        if((noSpec==false && noNum==true) && noAmb==false){
+            return noNumberPW(pwLngth);
+        }
+    }
+    
+/*    
+  function myFunction() {
+  var copyText = document.getElementById("PW");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999)
+  document.execCommand("copy");
+  alert("Copied the text: " + copyText.value);
+  }   
+ */
+  //displays generated password in "PW" div
+  function showPassword() {
+    var length = $("#Spinner").val();
+    var NoSpCharChbx = document.getElementById("NoSpCharChbx").checked;
+    var NoNumChbx = document.getElementById("NoNumChbx").checked;
+    var NoAmbChChbx = document.getElementById("NoAmbChChbx").checked;
+    
+    document.getElementById("PW").innerHTML = getPW(length,NoSpCharChbx,NoNumChbx,NoAmbChChbx);
+    
+  }
+  document.getElementById("PWbutton").onclick = function() {showPassword()};
+});
+</script>  
+
+<style type="text/css">
+.Title{
+  font-size:36px;
+  font-family:Helvetica;
+  text-align:center;
+  padding:20px;
+}
+
+.PwLength{
+  font-size:20px;
+  font-family:Helvetica;
+  text-align:center;
+  padding:20px;
+}
+
+.Spinner{
+  font-size:20px;
+  font-family:Helvetica;
+  text-align:center;
+  padding:20px;
+}
+
+.PW{
+  font-size:20px;
+  font-family:Helvetica;
+  text-align:center;
+  padding:20px;
+}
+
+.PWbutton{
+  font-size:20px;
+  font-family:Helvetica;
+  text-align:center;
+  padding:20px;
+}
+
+.Checkboxes{
+  font-size:20px;
+  font-family:Helvetica;
+  text-align:center;
+  padding:20px;
+}
+
+.NoSpCharChbx{
+  font-size:20px;
+  font-family:Helvetica;
+  text-align:center;
+  padding:20px;
+}
+
+.NoNumChbx{
+  font-size:20px;
+  font-family:Helvetica;
+  text-align:center;
+  padding:20px;
+}
+
+.NoAmbChChbx{
+  font-size:20px;
+  font-family:Helvetica;
+  text-align:center;
+  padding:20px;
+}
+
+
+.btn{
+  box-shadow: none!important;
+}
+</style>
+  
 <div class="Title">Passwordhelper.net</div>
 
 <div class="PwLength">Choose Password Length</div>
