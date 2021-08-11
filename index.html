@@ -5,11 +5,18 @@
 <!-- CSS Bootstrap-->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 
+<!-- CSS Bootstrap icons-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
 <!-- Javascript Bootstrap-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 
 <!-- Javascript-->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
 <head>
   
 <body>
@@ -52,41 +59,6 @@
     //Char array that excludes numbers and includes non ambiguous characters, usable as first chars
     const acnnnambf = ['a','b','c','d','e','f','g','h','j','k','m','n','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','J','K','M','N','P','Q','R','S','T','U','V','W','X','Y','Z','!','(',')','?','[',']','_','`','~',';',':','@','#','$','%','^','&','*','+','='];
 
-    //Length of the acnf array
-    const acnflength = acnf.length;
-
-    //aLength of the acf array
-    const acflength = acf.length;
-
-    //Length of the nnf array
-    const nnflength = nnf.length;
-
-    //Length of the nnnf array
-    const nnnflength = nnnf.length;
-
-    //Length of the nsc array
-    const nsclength = nsc.length;
-
-    //Length of the nsnnc array
-    const nsnnclength = nsnnc.length;
-
-    ///Length of the acnanf array
-    const acnanflength = acnanf.length;
-
-    ///Length of the acnaf array
-    const acnaflength = acnaf.length;
-
-    ///Length of the nsnac array
-    const  nsnaclength = nsnac.length;
-
-    ///Length of the nsnnnac array
-    const nsnnaclength = nsnnnac.length;
-
-    //Length of the acnnnanf array
-    const acnnnambflength = acnnnambf.length;
-
-    //Length of the acnnnambnf array
-    const acnnnambnflength = acnnnambnf.length;
     
     //checks if integer length is 8 or more, for checking minimal password length
     function propperlength(length){
@@ -100,129 +72,33 @@
     return Math.floor(Math.random() * (max - min + 1)) + min;
     }
     
-    /////all characters
-    function allCharPW(pwlength){
+    //allCharsNonAmbPW,noNumberPW,allCharNoNumNoAmbPW,allCharPW
+    function firstCharSensitive(length, firstArray, firstArrayLength, nonFirstArray, nonFirstArrayLength){
         output = [];
-        if(!propperlength(pwlength)){
-          return "Password length must be a number, 8 or more.";
-        }
-        else{
-          rand1= getRandomInt(0, acflength);
-          output[0] = acf[rand1];
-          for(let i = 1; i < pwlength; i++){
-            rand2 = getRandomInt(0, acnflength);
-            output[i] = acf[rand2];
-        }
-        return output.join("");
-        }
-    }
-
-    /////no Numbers, no ambiguous, includes special characters
-    function allCharNoNumNoAmbPW(pwlength){
-        output = [];
-        if(!propperlength(pwlength)){
+        if(!propperlength(length)){
           return "Password must be at least 8 characters long";
         }
         else{
-          rand1= getRandomInt(0, acnnnambflength);
-          output[0] = acnnnambf[rand1];
-          for(let i = 1; i < pwlength; i++){
-            rand2 = getRandomInt(0, acnnnambnflength);
-            output[i] = acnnnambnf[rand2];
-        }
-        return output.join("");
-        }
-    }
-    
-   ///////no numbers
-    function noNumberPW(pwlength){
-        output = [];
-        if(!propperlength(pwlength)){
-          return "Password must be at least 8 characters long";
-        }
-        else{
-          rand1= getRandomInt(0, nnflength);
-          output[0] = nnf[rand1];
-          for(let i = 1; i < pwlength; i++){
-            rand2 = getRandomInt(0, nnnflength);
-            output[i] = nnnf[rand2];
-        }
-        return output.join("");
-        }
-    }
-    
-   ///////no special characters
-    function nonCharPW(pwlength){
-      output = [];
-      if(!propperlength(pwlength)){
-        return "Password must be at least 8 characters long";
-      }
-      else{
-        for(let i = 0; i < pwlength; i++){
-          rand = getRandomInt(0, nsclength);
-          output[i] = nsc[rand];
-      }
-        return output.join("");
-      }
-    }
-
-    /////no ambiguous characters
-    function allCharsNonAmbPW(pwlength){
-      output = [];
-        if(!propperlength(pwlength)){
-          return "Password must be at least 8 characters long";
-        }
-        else{
-          rand1= getRandomInt(0, acnaflength);
-          output[0] = acnaf[rand1];
-          for(let i = 1; i < pwlength; i++){
-            rand2 = getRandomInt(0, acnanflength);
-            output[i] = acnanf[rand2];
-        }
-          return output.join("");
-        }
-    }
-
-    ///////no special characters, no numbers, includes ambiguous characters
-    function nonCharNonNumPW(pwlength){
-        output = [];
-        if(!propperlength(pwlength)){
-          return "Password must be at least 8 characters long";
-        }
-        else{
-          for(let i = 0; i < pwlength; i++){
-            rand = getRandomInt(0, nsnnclength);
-            output[i] = nsnnc[rand];
+          rand1= getRandomInt(0, firstArrayLength);
+          output[0] = firstArray[rand1];
+          for(let i = 1; i < length; i++){
+            rand2 = getRandomInt(0, nonFirstArrayLength);
+            output[i] = nonFirstArray[rand2];
         }
           return output.join("");
         }
     }
     
-    ///////no special characters, no ambiguous characters, includes numbers
-    function nonCharNonAmbPW(pwlength){
+    //nonCharNonNumNonAmbPW,nonCharNonAmbPW,nonCharNonNumPW,nonCharPW
+    function firstCharUnsensitive(length, array, arrayLength){
         output = [];
-        if(!propperlength(pwlength)){
+        if(!propperlength(length)){
           return "Password must be at least 8 characters long";
         }
         else{
-          for(let i = 0; i < pwlength; i++){
-            rand = getRandomInt(0, nsnaclength);
-            output[i] = nsnac[rand];
-        }
-          return output.join("");
-        }
-    }
-    
-    //////no special characters, numbers or ambiguous characters
-    function nonCharNonNumNonAmbPW(pwlength){
-        output = [];
-        if(!propperlength(pwlength)){
-          return "Password must be at least 8 characters long";
-        }
-        else{
-          for(let i = 0; i < pwlength; i++){
-            rand = getRandomInt(0, nsnnaclength);
-            output[i] = nsnnnac[rand];
+          for(let i = 0; i < length; i++){
+            rand = getRandomInt(0, arrayLength);
+            output[i] = array[rand];
         }
           return output.join("");
         }
@@ -232,47 +108,38 @@
    function getPW(pwLngth, noSpec, noNum, noAmb){
         //////no special characters, numbers or ambiguous characters
         if((noSpec==true && noNum==true) && noAmb==true){
-            return nonCharNonNumNonAmbPW(pwLngth);
+            return firstCharUnsensitive(pwLngth,nsnnnac,nsnnnac.length);
         }
         /////no Numbers, no ambiguous, includes special characters
         if((noSpec==false && noNum==true) && noAmb==true){
-            return allCharNoNumNoAmbPW(pwLngth);
+            return firstCharSensitive(pwLngth,acnnnambf,acnnnambf.length,acnnnambnf,acnnnambnf.length);
         }
         /////no ambiguous characters
         if((noSpec==false && noNum==false) && noAmb==true){
-            return allCharsNonAmbPW(pwLngth);
+            return firstCharSensitive(pwLngth,acnaf,acnaf.length,acnanf,acnanf.length);
         }
         ///////all characters
         if((noSpec==false && noNum==false) && noAmb==false){
-            return allCharPW(pwLngth);
+            return firstCharSensitive(pwLngth,acf,acf.length,acnf,acnf.length);
         }
         ///////no special characters, no ambiguous characters, includes numbers
         if((noSpec==true && noNum==false) && noAmb==true){
-            return nonCharNonAmbPW(pwLngth);
+            return firstCharUnsensitive(pwLngth,nsnac,nsnac.length);
         }
         ///////no special characters
         if((noSpec==true && noNum==false) && noAmb==false){
-            return nonCharPW(pwLngth);
+            return firstCharUnsensitive(pwLngth,nsc,nsc.length);
         }
         ///////no special characters, no numbers, includes ambiguous characters
         if((noSpec==true && noNum==true) && noAmb==false){
-            return nonCharNonNumPW(pwLngth);
+            return firstCharUnsensitive(pwLngth,nsnnc,nsnnc.length);
         }
         ///////no numbers
         if((noSpec==false && noNum==true) && noAmb==false){
-            return noNumberPW(pwLngth);
+            return firstCharSensitive(pwLngth,nnf,nnf.length,nnnf,nnnf.length);
         }
     }
     
-/*    
-  function myFunction() {
-  var copyText = document.getElementById("PW");
-  copyText.select();
-  copyText.setSelectionRange(0, 99999)
-  document.execCommand("copy");
-  alert("Copied the text: " + copyText.value);
-  }   
- */
   //displays generated password in "PW" div
   function showPassword() {
     var length = $("#Spinner").val();
@@ -283,7 +150,9 @@
     document.getElementById("PW").innerHTML = getPW(length,NoSpCharChbx,NoNumChbx,NoAmbChChbx);
     
   }
+  
   document.getElementById("PWbutton").onclick = function() {showPassword()};
+  
 });
 </script>  
 
@@ -300,6 +169,7 @@
   font-family:Helvetica;
   text-align:center;
   padding:20px;
+
 }
 
 .Spinner{
@@ -307,6 +177,7 @@
   font-family:Helvetica;
   text-align:center;
   padding:20px;
+  margin-top:-40px;
 }
 
 .PW{
@@ -314,6 +185,7 @@
   font-family:Helvetica;
   text-align:center;
   padding:20px;
+
 }
 
 .PWbutton{
@@ -335,6 +207,7 @@
   font-family:Helvetica;
   text-align:center;
   padding:20px;
+  margin-top: -30px;
 }
 
 .NoNumChbx{
@@ -342,6 +215,7 @@
   font-family:Helvetica;
   text-align:center;
   padding:20px;
+  margin-top: -30px;
 }
 
 .NoAmbChChbx{
@@ -349,8 +223,8 @@
   font-family:Helvetica;
   text-align:center;
   padding:20px;
+  margin-top: -30px;
 }
-
 
 .btn{
   box-shadow: none!important;
@@ -365,12 +239,13 @@
     <input id = "Spinner" type="number" value="8" min="8" max="Number.MAX_VALUE" step="1"/>
 </div>
 
-<div class="PW" id ="PW">Password</div>
+<div class="PW" id ="PW">
+<i class="bi bi-three-dots"></i>
+</div>
 
 <div class="PWbutton">
     <button type="button" class="btn btn-primary" id="PWbutton">Create Password</button>
 </div>
-
 
 <div class="Checkboxes">
   <div class = NoSpCharChbx >  
