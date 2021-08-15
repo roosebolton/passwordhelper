@@ -59,10 +59,11 @@
     //Char array that excludes numbers and includes non ambiguous characters, usable as first chars
     const acnnnambf = ['a','b','c','d','e','f','g','h','j','k','m','n','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','J','K','M','N','P','Q','R','S','T','U','V','W','X','Y','Z','!','(',')','?','[',']','_','`','~',';',':','@','#','$','%','^','&','*','+','='];
 
-    //construct1
-    const construct1 = [["a","the","some","any","one","your","her","his","their","our"], ["man","horse","pot","office","pony","doctor","computer","ball","banana","clown","desk","child","coconut","pinnballmachine","legging","postman","stewardes","tzar","boxer","officer","general","specialist","consultant","salesman","barber"],["throws","vomits","had","gets","gives","finds","hears","expires","minds","wants","looks","hangs","reccomends","sees","hangs","waits","is"],
-   ["a","the","some","any","one","your","her","his","their","our"],["rabit","girl","pan","ball","donkey","dentist","calculator","shuttle","mango","puppet","table","microbe","peanut","boardgame","pants","gardener","pilot","king","athlete","soldier","major","amateur","novice","engineer","acrobat"],["on","in","over","between","amongst","down","under","up","besides","amidst","without","with","upon","underneath","unlike","towards","through","since","regarding"], ["a","the","some","any","one","your","her","his","their","our"],     ["person","girafe","ladle","gym","capibara","nurse","phone","puck","tangerine","accountant","shelve","moster","wallnut","pooltable","dress","busdriver","captain","emperor"," equestrian ","sailor","marshall","journeyman","student","plumber","scientist"]];
-    
+    const construct1 = [
+    ["a","the","some","any","one","your","her","his","their","our"],["man","horse","pot","office","pony","doctor","computer","ball","banana","clown","desk","child","coconut","pinnballmachine","legging","postman","stewardes","tzar","boxer","officer","general","specialist","consultant","salesman","barber"],
+    ["throws","vomits","had","gets","gives","finds","hears","expires","minds","wants","looks","hangs","reccomends","sees","hangs","waits","is"],["a","the","some","any","one","your","her","his","their","our"],     
+    ["rabit","girl","pan","ball","donkey","dentist","calculator","shuttle","mango","puppet","table","microbe","peanut","boardgame","pants","gardener","pilot","king","athlete","soldier","major","amateur","novice","engineer","acrobat"]];
+
     //construct2
     const construct2 = [["wolfs","nephews","basements","wigs","pavements","seacreatures","coffeepots","numbers","armadillos","editors","entrepeneurs","hats","worms","poets","poodles","birds","bicycles","fruitbowls","rockets","writers","programmers"],
     ["are","become","were","seem","stay","sound","taste","grow","remain","feel","appear"],["red","great","thourough","handsome","brutal","weird","flexible","cool","punctual","expensive","infamous","dry","consise","hot","liquid","smelly","cruel","important","hairy","sneaky","rural"],
@@ -73,12 +74,12 @@
     ["pharmacies","churches","caravans","classrooms","laboratories","bunkers","shops","canyons","trenches","huts","caves","barns","rivers","hills","forests","tents","cheesefactories","racetracks","harbors","highways","bookstores "],
     ["are","become","were","seem","stay","sound","taste","grow","remain","feel","appear"],["red","great","thourough","handsome","brutal","weird","flexible","cool","punctual","expensive","infamous","dry","consise","hot","liquid","smelly","cruel","important","hairy","sneaky","rural"]];
 
-     //construct4
-     const construct4 = [["on","in","over","between","amongst","down","under","up","besides","amidst","without","with","upon","underneath","unlike","towards","through","since","regarding"],
+    //construct4
+    const construct4 = [
     ["a","the","some","any","one","your","her","his","their","our"],["thousand","two","gazilion","quarter","googolplex","pi","many","some","thirteen","few","fewer","sixteen","ten","fourteen","infinite","unbounded","thirteen","subzero"],
-    ["wolfs","nephews","basements","wigs","pavements","seacreatures","coffeepots","numbers","armadillos","editors","entrepeneurs","hats","worms","poets","poodles","birds","bicycles","fruitbowls","rockets","writers","programmers"],    
     ["red","great","thourough","handsome","brutal","weird","flexible","cool","punctual","expensive","infamous","dry","consise","hot","liquid","smelly","cruel","important","hairy","sneaky","rural"],
-    ["pharmacies","churches","caravans","classrooms","laboratories","bunkers","shops","canyons","trenches","huts","caves","barns","rivers","hills","forests","tents","cheesefactories","racetracks","harbors","highways","bookstores "], ["rule","dance","investigate","chew","drift","operate","train","eat","fart","shout","stroll","harvest","engage","cook","assemble","create","limp","triumph","swim"]];
+    ["wolfs","nephews","basements","wigs","pavements","seacreatures","coffeepots","numbers","armadillos","editors","entrepeneurs","hats","worms","poets","poodles","birds","bicycles","fruitbowls","rockets","writers","programmers"],    
+    ["rule","dance","investigate","chew","drift","operate","train","eat","fart","shout","stroll","harvest","engage","cook","assemble","create","limp","triumph","swim"]];
 
     //construct5
     const construct5 = [["a","the","some","any","one","your","her","his","their","our"],["thousand","two","gazilion","quarter","googolplex","pi","many","some","thirteen","few","fewer","sixteen","ten","fourteen","infinite","unbounded","thirteen","subzero"],
@@ -89,10 +90,9 @@
 
     //construct6
     const construct6 =  [["a","the","some","any","one","your","her","his","their","our"],["man","horse","pot","office","pony","doctor","computer","ball","banana","clown","desk","child","coconut","pinnballmachine","legging","postman","stewardes","tzar","boxer","officer","general","specialist","consultant","salesman","barber"],
-    ["on","in","over","between","amongst","down","under","up","besides","amidst","without","with","upon","underneath","unlike","towards","through","since","regarding"],    
-    ["a","the","some","any","one","your","her","his","their","our"],["thousand","two","gazilion","quarter","googolplex","pi","many","some","thirteen","few","fewer","sixteen","ten","fourteen","infinite","unbounded","thirteen","subzero"],
-    ["wolfs","nephews","basements","wigs","pavements","seacreatures","coffeepots","numbers","armadillos","editors","entrepeneurs","hats","worms","poets","poodles","birds","bicycles","fruitbowls","rockets","writers","programmers"]];
-
+    ["on","in","over","between","amongst","down","under","up","besides","amidst","without","with","upon","underneath","unlike","towards","through","since","regarding"],["a","the","some","any","one","your","her","his","their","our"],   
+    ["thousand","two","gazilion","quarter","googolplex","pi","many","some","thirteen","few","fewer","sixteen","ten","fourteen","infinite","unbounded","thirteen","subzero"],["wolfs","nephews","basements","wigs","pavements","seacreatures","coffeepots","numbers","armadillos","editors","entrepeneurs","hats","worms","poets","poodles","birds","bicycles","fruitbowls","rockets","writers","programmers"]];
+    
     const constructs = [construct1,construct2,construct3,construct4,construct5,construct6];
 
     //chooses construct
